@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class HomeController {
@@ -11,11 +12,12 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(){
-        logger.trace("Trace Level 테스트"); 
-        logger.debug("DEBUG Level 테스트"); 
-        logger.info("INFO Level 테스트"); 
-        logger.warn("Warn Level 테스트"); 
-        logger.error("ERROR Level 테스트");
+        logger.info("홈에 들어옴");
         return "index";
+    }
+    @GetMapping("/move/{dir}/{page}")
+    public String move(@PathVariable String dir,@PathVariable String page){
+        logger.info("이동한 페이지:"+dir+"/"+page);
+        return String.format("%s/%s", dir,page);
     }
 }

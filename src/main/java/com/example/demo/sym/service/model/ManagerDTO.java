@@ -5,6 +5,6 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 
 @Component @Data
-public class TeacherDTO{
-    private String teaNum,name,password,subject;
+public class ManagerDTO {
+    private String mgrNUM,email,password;
 }

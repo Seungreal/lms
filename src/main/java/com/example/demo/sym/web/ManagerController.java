@@ -3,8 +3,8 @@ package com.example.demo.sym.web;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.demo.sym.service.TeacherService;
-import com.example.demo.sym.service.model.TeacherDTO;
+import com.example.demo.sym.service.ManagerService;
+import com.example.demo.sym.service.model.ManagerDTO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class TeacherController {
-    @Autowired TeacherService teacherService;
+public class ManagerController {
+    @Autowired ManagerService managerService;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    @PostMapping("/teachers")
-    public Map<?,?> register(@RequestBody TeacherDTO t){
+    @PostMapping("/managers")
+    public Map<?,?> register(@RequestBody ManagerDTO m){
         var map = new HashMap<>();
-        logger.info("강사 정보:"+t.toString());
-        int result = teacherService.register(t);
+        logger.info("등록하려는 관리자정보:"+m.toString());
+        int result = managerService.register(m);
         map.put("message", result==1?"SUCCESS":"FAILURE");
         return map;
     }
