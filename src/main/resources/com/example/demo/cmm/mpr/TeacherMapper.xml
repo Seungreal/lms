@@ -1,8 +1,17 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    <mapper namespace="com.example.demo.cmm.mpr.TeacherMapper">
-        <insert id="insert" parameterType="com.example.demo.sym.service.model.TeacherDTO">
-            insert into teachers(name,password,subject) values(#{name},#{password},#{subject})
-        </insert>
-    </mapper>
+<mapper namespace="com.example.demo.cmm.mpr.TeacherMapper">
+    <insert id="insert" parameterType="com.example.demo.sym.service.model.TeacherDTO">
+        insert into teachers(name,password,subject) 
+        values(#{name},#{password},#{subject})
+    </insert>
+    <select id="selectAll" resultType="com.example.demo.sym.service.model.TeacherDTO">
+        select tea_num teaNum,name,password,subject,email from teachers
+    </select>
+    <select id="select" parameterType="string"
+                        resultType="com.example.demo.sym.service.model.TeacherDTO">
+        select tea_num teaNum,name,password,subject,email,profile_img profileImg from teachers
+        where name like #{value}
+    </select>
+</mapper>

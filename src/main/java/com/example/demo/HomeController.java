@@ -20,4 +20,9 @@ public class HomeController {
         logger.info("이동한 페이지:"+dir+"/"+page);
         return String.format("%s/%s", dir,page);
     }
+    @GetMapping("/transfer/{dir}/{sub}/{page}")
+    public String transfer(@PathVariable String dir,@PathVariable String sub,@PathVariable String page){
+        logger.info("이동한 페이지:"+dir+"/"+sub+"/"+page);
+        return String.format("%s/%s/%s", dir,sub,page);
+    }
 }

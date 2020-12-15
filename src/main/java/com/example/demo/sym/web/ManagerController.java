@@ -11,13 +11,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/managers")
 public class ManagerController {
     @Autowired ManagerService managerService;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    @PostMapping("/managers")
+    @PostMapping("/")
     public Map<?,?> register(@RequestBody ManagerDTO m){
         var map = new HashMap<>();
         logger.info("등록하려는 관리자정보:"+m.toString());
