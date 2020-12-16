@@ -14,5 +14,9 @@ public interface TeacherMapper {
 	public List<TeacherDTO> selectAll();
 
 	public TeacherDTO select(String name);
+
+	public int update(TeacherDTO t);
+
+	public int delete(TeacherDTO t);
     
 }

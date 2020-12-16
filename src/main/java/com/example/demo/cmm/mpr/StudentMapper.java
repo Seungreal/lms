@@ -16,5 +16,9 @@ public interface StudentMapper {
 	public StudentDTO selectById(String userid);
 
 	public List<StudentDTO> selectAll();
+
+	public int update(StudentDTO s);
+
+	public int delete(StudentDTO s);
     
 }

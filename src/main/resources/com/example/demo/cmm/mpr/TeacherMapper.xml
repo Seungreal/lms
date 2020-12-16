@@ -14,4 +14,13 @@
         select tea_num teaNum,name,password,subject,email,profile_img profileImg from teachers
         where name like #{value}
     </select>
+    <update id="update" parameterType="com.example.demo.sym.service.model.TeacherDTO">
+        update teachers
+        set subject = #{subject},email = #{email}
+        where tea_num like #{teaNum}
+    </update>
+    <delete id="delete" parameterType="com.example.demo.sym.service.model.TeacherDTO">
+        delete from teachers
+        where tea_num like #{teaNum}
+    </delete>
 </mapper>

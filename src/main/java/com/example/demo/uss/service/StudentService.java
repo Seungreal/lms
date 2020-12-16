@@ -16,5 +16,9 @@ public interface StudentService {
 	public StudentDTO detail(String userid);
 
 	public List<?> list();
+
+	public int update(StudentDTO s);
+
+	public int delete(StudentDTO s);
     
 }

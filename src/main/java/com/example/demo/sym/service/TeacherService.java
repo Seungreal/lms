@@ -14,5 +14,9 @@ public interface TeacherService {
 	public List<?> list();
 
 	public TeacherDTO detail(String name);
+
+	public int update(TeacherDTO t);
+
+	public int delete(TeacherDTO t);
     
 }

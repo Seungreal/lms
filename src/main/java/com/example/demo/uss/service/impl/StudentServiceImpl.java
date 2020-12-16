@@ -33,5 +33,15 @@ public class StudentServiceImpl implements StudentService {
     public List<?> list() {
         return studentMapper.selectAll();
     }
+
+    @Override
+    public int update(StudentDTO s) {
+        return studentMapper.update(s);
+    }
+
+    @Override
+    public int delete(StudentDTO s) {
+        return studentMapper.delete(s);
+    }
     
 }

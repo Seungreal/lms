@@ -10,9 +10,11 @@ import com.example.demo.sym.service.model.TeacherDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,5 +39,17 @@ public class TeacherController {
     @GetMapping("/{name}")
     public TeacherDTO profile(@PathVariable String name){
         return teacherService.detail(name);
+    }
+    @PutMapping("")
+    public Map<?,?> update(@RequestBody TeacherDTO t){
+        var map = new HashMap<>();
+        map.put("message", teacherService.update(t)==1?"SUCCESS":"FAILURE");
+        return map;
+    }
+    @DeleteMapping("")
+    public Map<?,?> delete(@RequestBody TeacherDTO t){
+        var map = new HashMap<>();
+        map.put("message", teacherService.delete(t)==1?"SUCCESS":"FAILURE");
+        return map;
     }
 }
